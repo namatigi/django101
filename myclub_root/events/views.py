@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from datetime import date
 import calendar
 from calendar import HTMLCalendar
@@ -23,4 +23,5 @@ def index(request, year=date.today().year, month=date.today().month):
     # return HttpResponse("<h2>{}</h2>".format(title))
     # return HttpResponse("<h2>Myclub Event Calendar</h2>")
     cal = HTMLCalendar().formatmonth(year, month)
-    return HttpResponse("<h2>{}</h2><p>{}</p>".format(title, cal))
+    # return HttpResponse("<h2>{}</h2><p>{}</p>".format(title, cal))
+    return render(request, 'base.html', {'title': title, 'cal': cal})
