@@ -24,4 +24,10 @@ def index(request, year=date.today().year, month=date.today().month):
     # return HttpResponse("<h2>Myclub Event Calendar</h2>")
     cal = HTMLCalendar().formatmonth(year, month)
     # return HttpResponse("<h2>{}</h2><p>{}</p>".format(title, cal))
-    return render(request, 'base.html', {'title': title, 'cal': cal})
+    page_title = "MyClub Calendar"
+    announcements = [
+        {'date': '8-9-2020', 'announcement': "Club Registrations Open"},
+        {'date': '5-5-2020', 'announcement': "Leonard Mangu elected President"}
+    ]
+    return render(request, 'events/calendar_base.html',
+                  {'title': title, 'cal': cal, 'page_title': page_title, 'announcements': announcements})
