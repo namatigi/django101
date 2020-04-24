@@ -7,7 +7,7 @@ from calendar import HTMLCalendar
 
 # Create your views here.
 
-def index(request, year, month):
+def index(request, year=date.today().year, month=date.today().month):
     # t = date.today()
     # month = date.strftime(t, '%b')
     # year = t.year
