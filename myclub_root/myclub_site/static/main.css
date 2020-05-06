@@ -150,3 +150,7 @@ input{
 .required label:after{
     content: "*";
 }
+
+#venue{
+
+}

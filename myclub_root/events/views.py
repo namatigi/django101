@@ -34,8 +34,7 @@ def index(request, year=date.today().year, month=date.today().month):
         {'date': '8-9-2020', 'announcement': "Club Registrations Open"},
         {'date': '5-5-2020', 'announcement': "Leonard Mangu elected President"}
     ]
-    return render(request, 'events/calendar_base.html',
-                  {'title': title, 'cal': cal, 'page_title': page_title, 'announcements': announcements})
+    return render(request, 'events/calendar_base.html',{'title': title, 'cal': cal, 'page_title': page_title, 'announcements': announcements})
 
 
 def add_venue(request):
@@ -49,7 +48,7 @@ def add_venue(request):
         if form.is_valid():
             form.save()
             return
-        HttpResponseRedirect('/add_venue/?submitted=True')
+        HttpResponseRedirect('add_venue/?submitted=True')
     else:
         form = VenueForm()
         if 'submitted' in request.GET:
